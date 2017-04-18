@@ -30,6 +30,12 @@ parse_git_branch() {
 #=========================================================================
 
 #====== PS1 ========================================================
+#Uncomment the one to use
+
+#Display the git branch, the location et usermode
+#export PS1="${RED}\$(parse_git_branch)${RESET}${GRAY}[\w]\$ ${RESET}"
+
+#Same as above but add a new ligne design
 export PS1="${GRAY}╭${RED}\$(parse_git_branch)${RESET}${GRAY}[\w]\$ \n╰●${RESET} "
 #===================================================================
 
