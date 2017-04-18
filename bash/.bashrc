@@ -15,6 +15,14 @@ man() { #Colorfull man
 }
 #========================
 
+#====== GLOBALS ===============
+if which vim &>/dev/null; then
+	export EDITOR="vim"
+else
+	export EDITOR="nano"
+fi
+#==============================
+
 #====== GIT ==============================================================
 parse_git_branch() {
 	git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/{\1} /'
@@ -59,3 +67,12 @@ function makezip() { zip -r "${1%%/}.zip" "$1" ;}
 
 #complete -f -o default -X '!*.(zip|ZIP|z|Z|gz|GZ|bz2|BZ2)' extract
 #===========================================================================
+
+function mcd() {
+	mkdir -p $1;
+	cd $1;
+}
+
+function remindme() {
+	sleep $1 && zenity --info --text "$2" &
+}
