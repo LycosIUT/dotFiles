@@ -80,5 +80,5 @@ function mcd() {
 }
 
 function remindme() {
-	sleep $1 && zenity --info --text "$2" &
+	sleep $1 && zenity --info --text "$2" & &>/dev/null;
 }
